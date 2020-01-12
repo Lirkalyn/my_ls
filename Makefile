@@ -6,7 +6,13 @@
 ##
 .PHONY : clean fclean re
 
-SRC	=	main.c
+SRC	=	main.c \
+		l_1.c \
+		l_1_2.c \
+		file.c \
+		general.c \
+		display.c \
+		display_2.c
 
 OBJ	=	$(SRC:.c=.o)
 
