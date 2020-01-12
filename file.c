@@ -15,8 +15,6 @@
 #include <time.h>
 #include "my.h"
 
-#include <stdio.h>
-
 int file_number(int argc, char *argv[])
 {
     struct stat sb;

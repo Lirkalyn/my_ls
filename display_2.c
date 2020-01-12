@@ -15,8 +15,6 @@
 #include <time.h>
 #include "my.h"
 
-#include <stdio.h>
-
 int strcm(char const *s1, char const *s2)
 {
     int i;

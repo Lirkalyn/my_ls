@@ -15,8 +15,6 @@
 #include <time.h>
 #include "my.h"
 
-#include <stdio.h>
-
 struct Info *size_filler(struct Info *inf, int nb_ele)
 {
     int max = 0;
@@ -41,7 +39,6 @@ struct Info *size_filler(struct Info *inf, int nb_ele)
 struct Info *right_filler(struct stat sb, struct Info *inf)
 {
     inf->type_rights[0] = (S_ISDIR(sb.st_mode)) ? 'd' : '-';
-    inf->type_rights[0] = (S_ISLNK(sb.st_mode)) ? 'l' : '-';
     inf->type_rights[1] = (sb.st_mode & S_IRUSR) ? 'r' : '-';
     inf->type_rights[2] = (sb.st_mode & S_IWUSR) ? 'w' : '-';
     inf->type_rights[3] = (sb.st_mode & S_IXUSR) ? 'x' : '-';

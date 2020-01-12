@@ -15,7 +15,15 @@
 #include <time.h>
 #include "my.h"
 
-#include <stdio.h>
+void l_1_case_2(int nb_ele, struct Info *inf, int *lRdrt, DIR *dir)
+{
+    inf = size_filler(inf, nb_ele);
+    inf = nb_filler(inf, nb_ele);
+    for (int i = 0; i < nb_ele; i++)
+        inf = sort(inf, nb_ele, lRdrt);
+    dir_dipslay(nb_ele, inf, lRdrt);
+    closedir(dir);
+}
 
 void l_1_case(int argc, char *argv[], int *lRdrt, int pos)
 {
@@ -36,13 +44,7 @@ void l_1_case(int argc, char *argv[], int *lRdrt, int pos)
             inf = malloc(nb_ele * sizeof(struct Info));
             for (j = 0; (dp = readdir(dir)) != NULL; inf[j++].na = dp->d_name);
             inf = l_1_filler(argv[i], lRdrt, nb_ele, inf);
-            inf -= (nb_ele - 1);
-            inf = size_filler(inf, nb_ele);
-            inf = nb_filler(inf, nb_ele);
-            for (int i = 0; i < nb_ele; i++)
-                inf = sort(inf, nb_ele, lRdrt);
-            dir_dipslay(nb_ele, inf, lRdrt);
-            closedir(dir);
+            l_1_case_2(nb_ele, (inf - (nb_ele - 1)), lRdrt, dir);
         }
     }
 }

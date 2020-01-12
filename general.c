@@ -15,8 +15,6 @@
 #include <time.h>
 #include "my.h"
 
-#include <stdio.h>
-
 int my_strncmp(char const *s1, char const *s2, int *len)
 {
     int i;
