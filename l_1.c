@@ -117,7 +117,6 @@ struct Info *l_1_filler(char *path, int *lRdrt, int nb_ele, struct Info *inf)
     inf = struc_filler(sb, inf);
     inf = sys_link(com_path, inf);
     nb_ele -= 1;
-    //printf("type_rights = %s, nb = %d, user = %s, group = %s, tot = %d, size = %llu, date = %s, time = %llu, name = %s, uid = %d, gid = %d\n", inf[0].type_rights, inf[0].nb, inf[0].user, inf[0].group, inf[0].tot, inf[0].size, inf[0].date, inf[0].time, inf[0].na, inf[0].uid, inf[0].gid);
     if (nb_ele == 0)
         return inf;
     else

@@ -48,11 +48,10 @@ int file(int argc, char *argv[], int *lRdrt)
     }
     inf -= (file_nb);
     inf = size_filler(inf, file_nb);
+    inf = nb_filler(inf, file_nb);
     for (int i = 0; i < file_nb; i++)
         inf = sort(inf, file_nb, lRdrt);
     file_dipslay(file_nb, inf, lRdrt);
-//    for (int i = 0; i < file_nb; i++)
-//        printf("type_rights = %s, nb = %d, user = %s, group = %s, tot = %d, size = %llu, size_d = |%s|,date = %s, time = %llu, name = %s, uid = %d, gid = %d\n", inf[i].type_rights, inf[i].nb, inf[i].user, inf[i].group, inf[i].tot, inf[i].size, inf[i].size_d, inf[i].date, inf[i].time, inf[i].na, inf[i].uid, inf[i].gid);
 }
 
 void d_only(int argc, char *argv[], int *lRdrt)

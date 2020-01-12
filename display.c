@@ -62,7 +62,7 @@ void file_dipslay_2(int file_nb, struct Info *inf, int *lRdrt)
     if (lRdrt[3] == 0)
         for (int i = 0; i < file_nb; i++) {
             my_putstr(inf[i].type_rights, 1);
-            my_put_nbr(inf[i].nb);
+            my_putstr(inf[i].nb_d, 1);
             my_putstr(inf[i].user, 1);
             my_putstr(inf[i].group, 1);
             my_putstr(inf[i].size_d, 1);
@@ -72,7 +72,7 @@ void file_dipslay_2(int file_nb, struct Info *inf, int *lRdrt)
     else if (lRdrt[3] == 1)
         for (int i = (file_nb - 1); i >= 0; i--) {
             my_putstr(inf[i].type_rights, 1);
-            my_put_nbr(inf[i].nb);
+            my_putstr(inf[i].nb_d, 1);
             my_putstr(inf[i].user, 1);
             my_putstr(inf[i].group, 1);
             my_putstr(inf[i].size_d, 1);

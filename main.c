@@ -38,11 +38,10 @@ void l_1_case(int argc, char *argv[], int *lRdrt, int pos)
             inf = l_1_filler(argv[i], lRdrt, nb_ele, inf);
             inf -= (nb_ele - 1);
             inf = size_filler(inf, nb_ele);
+            inf = nb_filler(inf, nb_ele);
             for (int i = 0; i < nb_ele; i++)
                 inf = sort(inf, nb_ele, lRdrt);
             dir_dipslay(nb_ele, inf, lRdrt);
-//            for (int i = 0; i < nb_ele; i++)
-//                printf("type_rights = %s, nb = %d, user = %s, group = %s, tot = %d, size = %llu, size_d = |%s|,date = %s, time = %llu, name = %s, uid = %d, gid = %d\n", inf[i].type_rights, inf[i].nb, inf[i].user, inf[i].group, inf[i].tot, inf[i].size, inf[i].size_d, inf[i].date, inf[i].time, inf[i].na, inf[i].uid, inf[i].gid);
             closedir(dir);
         }
     }
@@ -78,11 +77,9 @@ int main(int argc, char *argv[])
     int *lRdrt = option_checker(argc, argv);
     char **arg = arg_finder(argc, argv, &nb_arg);
 
-    if (/*argc == 1 || */lRdrt == NULL || arg == NULL)
+    if (lRdrt == NULL || arg == NULL)
         return 84;
     d_only(nb_arg, arg, lRdrt);
-//    printf("file\n");
     file(nb_arg, arg, lRdrt);
-//    printf("dos\n");
     l_1_case(nb_arg, arg, lRdrt, 0);
 }

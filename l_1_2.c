@@ -58,3 +58,24 @@ struct Info *sys_link(char *com_path, struct Info *inf)
     }
     return inf;
 }
+
+struct Info *nb_filler(struct Info *inf, int nb_ele)
+{
+    int max = 0;
+    int tmp_max = 0;
+    unsigned long long tmp_size;
+
+    for (int i = 0; i < nb_ele; i++) {
+        tmp_size = inf[i].nb;
+        for (tmp_max = 0; tmp_size != 0; tmp_max += 1)
+            tmp_size /= 10;
+        max = (tmp_max > max) ? tmp_max : max;
+    }
+    if (max == 0)
+        max = 1;
+    for (int i = 0; i < nb_ele; i++) {
+        tmp_size = inf[i].nb;
+        inf[i].nb_d = put_nb(max, tmp_size);
+    }
+    return inf;
+}
