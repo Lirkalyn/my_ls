@@ -25,7 +25,7 @@ void l_1_case_2(int nb_ele, struct Info *inf, int *lRdrt, DIR *dir)
     closedir(dir);
 }
 
-void l_1_case(int argc, char *argv[], int *lRdrt, int pos)
+int l_1_case(int argc, char *argv[], int *lRdrt, int pos)
 {
     DIR *dir;
     struct dirent *dp;
@@ -34,7 +34,7 @@ void l_1_case(int argc, char *argv[], int *lRdrt, int pos)
     int nb_ele = 0;
     int j = 0;
 
-    for (int i = pos; i < argc; i++) {
+    for (int i = pos; i < argc; i++)
         if (argv[i][0] != '-') {
             stat(argv[i], &sb);
             if (S_ISDIR(sb.st_mode) == 0)
@@ -44,9 +44,10 @@ void l_1_case(int argc, char *argv[], int *lRdrt, int pos)
             inf = malloc(nb_ele * sizeof(struct Info));
             for (j = 0; (dp = readdir(dir)) != NULL; inf[j++].na = dp->d_name);
             inf = l_1_filler(argv[i], lRdrt, nb_ele, inf);
+            if (inf == NULL)
+                return 84;
             l_1_case_2(nb_ele, (inf - (nb_ele - 1)), lRdrt, dir);
         }
-    }
 }
 
 int *option_checker(int argc, char *argv[])
@@ -83,5 +84,5 @@ int main(int argc, char *argv[])
         return 84;
     d_only(nb_arg, arg, lRdrt);
     file(nb_arg, arg, lRdrt);
-    l_1_case(nb_arg, arg, lRdrt, 0);
+    return l_1_case(nb_arg, arg, lRdrt, 0);
 }

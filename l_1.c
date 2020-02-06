@@ -110,7 +110,8 @@ struct Info *l_1_filler(char *path, int *lRdrt, int nb_ele, struct Info *inf)
     for (; path[len[0]] != '\0'; len[0] += 1);
     for (; inf->na[len[1]] != '\0'; len[1] += 1);
     com_path = path_giver(path, inf, len);
-    stat(com_path, &sb);
+    if (stat(com_path, &sb) == -1)
+        return NULL;
     inf = struc_filler(sb, inf);
     inf = sys_link(com_path, inf);
     nb_ele -= 1;
