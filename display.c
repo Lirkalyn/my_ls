@@ -55,9 +55,9 @@ int my_put_nbr(int nb)
     return 0;
 }
 
-void file_dipslay_2(int file_nb, struct Info *inf, int *lRdrt)
+void file_dipslay_2(int file_nb, struct Info *inf, int *lrdrt)
 {
-    if (lRdrt[3] == 0)
+    if (lrdrt[3] == 0)
         for (int i = 0; i < file_nb; i++) {
             my_putstr(inf[i].type_rights, 1);
             my_putstr(inf[i].nb_d, 1);
@@ -67,7 +67,7 @@ void file_dipslay_2(int file_nb, struct Info *inf, int *lRdrt)
             my_putstr(inf[i].date, 1);
             my_putstr(inf[i].na, 0);
         }
-    else if (lRdrt[3] == 1)
+    else if (lrdrt[3] == 1)
         for (int i = (file_nb - 1); i >= 0; i--) {
             my_putstr(inf[i].type_rights, 1);
             my_putstr(inf[i].nb_d, 1);
@@ -79,16 +79,16 @@ void file_dipslay_2(int file_nb, struct Info *inf, int *lRdrt)
         }
 }
 
-void file_dipslay(int file_nb, struct Info *inf, int *lRdrt)
+void file_dipslay(int file_nb, struct Info *inf, int *lrdrt)
 {
-    if (lRdrt[0] == 0) {
-        if (lRdrt[3] == 0)
+    if (lrdrt[0] == 0) {
+        if (lrdrt[3] == 0)
             for (int i = 0; i < file_nb; i++)
                 my_putstr(inf[i].na, 0);
-        else if (lRdrt[3] == 1)
+        else if (lrdrt[3] == 1)
             for (int i = (file_nb - 1); i >= 0; i--)
                 my_putstr(inf[i].na, 0);
     }
-    else if (lRdrt[0] == 1)
-        file_dipslay_2(file_nb, inf, lRdrt);
+    else if (lrdrt[0] == 1)
+        file_dipslay_2(file_nb, inf, lrdrt);
 }

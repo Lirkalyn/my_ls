@@ -68,9 +68,9 @@ int my_put_nbr_2(int nb)
     return 0;
 }
 
-void dir_dipslay_2(int nb_ele, struct Info *inf, int *lRdrt)
+void dir_dipslay_2(int nb_ele, struct Info *inf, int *lrdrt)
 {
-    if (lRdrt[3] == 0)
+    if (lrdrt[3] == 0)
         for (int i = 0; i < nb_ele; i++)
             if (strcm(inf[i].na , ".") && strcm(inf[i].na , "..")
                 && (inf[i].type_rights[0] != 'l') && (inf[i].na[0] != '.')) {
@@ -82,7 +82,7 @@ void dir_dipslay_2(int nb_ele, struct Info *inf, int *lRdrt)
                 my_putstr(inf[i].date, 1);
                 my_putstr(inf[i].na, 0);
             }
-    else if (lRdrt[3] == 1)
+    else if (lrdrt[3] == 1)
         for (int i = (nb_ele - 1); i >= 0; i--)
             if (strcm(inf[i].na , ".") && strcm(inf[i].na , "..")
                 && (inf[i].type_rights[0] != 'l') && (inf[i].na[0] != '.')) {
@@ -96,29 +96,29 @@ void dir_dipslay_2(int nb_ele, struct Info *inf, int *lRdrt)
             }
 }
 
-void dir_dipslay(int nb_ele, struct Info *inf, int *lRdrt)
+void dir_dipslay(int nb_ele, struct Info *inf, int *lrdrt)
 {
     int total = 0;
 
-    if (lRdrt[0] == 0) {
-        if (lRdrt[3] == 0)
+    if (lrdrt[0] == 0) {
+        if (lrdrt[3] == 0)
             for (int i = 0; i < nb_ele; i++)
                 if (strcm(inf[i].na , ".") && strcm(inf[i].na , "..")
                     && (inf[i].type_rights[0] != 'l') && (inf[i].na[0] != '.'))
                     my_putstr(inf[i].na, 0);
-        else if (lRdrt[3] == 1)
+        else if (lrdrt[3] == 1)
             for (int i = (nb_ele - 1); i >= 0; i--)
                 if (strcm(inf[i].na , ".") && strcm(inf[i].na , "..")
                     && (inf[i].type_rights[0] != 'l') && (inf[i].na[0] != '.'))
                     my_putstr(inf[i].na, 0);
     }
-    else if (lRdrt[0] == 1) {
+    else if (lrdrt[0] == 1) {
         for (int i = 0; i < nb_ele; i++)
             if (strcm(inf[i].na , ".") && strcm(inf[i].na , "..")
                 && (inf[i].type_rights[0] != 'l') && (inf[i].na[0] != '.'))
                 total += inf[i].tot;
         my_putstr("total", 1);
         my_put_nbr_2(total);
-        dir_dipslay_2(nb_ele, inf, lRdrt);
+        dir_dipslay_2(nb_ele, inf, lrdrt);
     }
 }

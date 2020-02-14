@@ -100,7 +100,7 @@ char *path_giver(char *path, struct Info *inf, int *len)
     return rsl;
 }
 
-struct Info *l_1_filler(char *path, int *lRdrt, int nb_ele, struct Info *inf)
+struct Info *l_1_filler(char *path, int *lrdrt, int nb_ele, struct Info *inf)
 {
     struct stat sb;
     char *com_path;
@@ -118,5 +118,5 @@ struct Info *l_1_filler(char *path, int *lRdrt, int nb_ele, struct Info *inf)
     if (nb_ele == 0)
         return inf;
     else
-        l_1_filler(path, lRdrt, nb_ele, (inf + 1));
+        l_1_filler(path, lrdrt, nb_ele, (inf + 1));
 }

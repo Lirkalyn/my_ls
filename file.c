@@ -28,7 +28,7 @@ int file_number(int argc, char *argv[])
     return file_nb;
 }
 
-int file(int argc, char *argv[], int *lRdrt)
+int file(int argc, char *argv[], int *lrdrt)
 {
     struct stat sb;
     int file_nb = file_number(argc, argv);
@@ -48,18 +48,18 @@ int file(int argc, char *argv[], int *lRdrt)
     inf = size_filler(inf, file_nb);
     inf = nb_filler(inf, file_nb);
     for (int i = 0; i < file_nb; i++)
-        inf = sort(inf, file_nb, lRdrt);
-    file_dipslay(file_nb, inf, lRdrt);
+        inf = sort(inf, file_nb, lrdrt);
+    file_dipslay(file_nb, inf, lrdrt);
 }
 
-void d_only(int argc, char *argv[], int *lRdrt)
+void d_only(int argc, char *argv[], int *lrdrt)
 {
-    if (lRdrt[0] == 0 && lRdrt[1] == 0 && lRdrt[2] == 1 && lRdrt[3] == 0) {
+    if (lrdrt[0] == 0 && lrdrt[1] == 0 && lrdrt[2] == 1 && lrdrt[3] == 0) {
         for (int i = 0; i < argc; i++) {
             my_putstr(argv[i], 0);
         }
     }
-    else if (lRdrt[0] == 0 && lRdrt[1] == 0 && lRdrt[2] == 1 && lRdrt[3] == 1) {
+    else if (lrdrt[0] == 0 && lrdrt[1] == 0 && lrdrt[2] == 1 && lrdrt[3] == 1) {
         for (int i = (argc - 1); i >= 0; i--) {
             my_putstr(argv[i], 0);
         }

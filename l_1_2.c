@@ -39,6 +39,8 @@ int number(char *str)
     int rsl = 0;
 
     dir = opendir(str);
+    if (dir == NULL)
+        return -42;
     while ((dp = readdir(dir)) != NULL)
         rsl++;
     closedir(dir);

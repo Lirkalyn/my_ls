@@ -78,7 +78,7 @@ char **arg_finder(int argc, char *argv[], int *nb_arg)
     return rsl;
 }
 
-struct Info *sort(struct Info *inf, int nb, int *lRdrt)
+struct Info *sort(struct Info *inf, int nb, int *lrdrt)
 {
     int len[2] = {[0 ... 1] = 0};
     struct Info tmp;
@@ -93,7 +93,7 @@ struct Info *sort(struct Info *inf, int nb, int *lRdrt)
                 inf[(i + 1)] = tmp;
             }
     }
-    for (int i = 0; (i < (nb - 1) && lRdrt[4] == 1); i++)
+    for (int i = 0; (i < (nb - 1) && lrdrt[4] == 1); i++)
         if (inf[i].time < inf[(i + 1)].time) {
             tmp = inf[i];
             inf[i] = inf[(i + 1)];
